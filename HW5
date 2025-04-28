@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Tie Your Shoe</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 0.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .step {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Learn to Tie Your Shoe</h1>
+  <div class="container">
+    <div class="step" id="step-text">Step 1: Take both laces and pull them tight.</div>
+
+    <div class="buttons">
+      <button onclick="prevStep()">Previous</button>
+      <button onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const steps = [
+      "Step 1: Take both laces and pull them tight.",
+      "Step 2: Cross one lace over the other and pull it through the hole to form the first knot.",
+      "Step 3: Make a loop (bunny ear) with one lace.",
+      "Step 4: Make a loop (bunny ear) with the other lace.",
+      "Step 5: Cross the two loops over each other.",
+      "Step 6: Pull one loop through the hole under the other loop.",
+      "Step 7: Pull both loops tight. You have tied your shoe!"
+    ];
+
+    let currentStep = 0;
+
+    function updateStep() {
+      document.getElementById('step-text').innerText = steps[currentStep];
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStep();
+      }
+    }
+  </script>
+
+</body>
+</html>
